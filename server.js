@@ -1,17 +1,45 @@
 const mongoose = require('mongoose');
+const express = require('express');
+
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+const { User, Thought } = require('./models');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-net', {
+  useFindAndModify: false,
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 mongoose.set('useCreateIndex', true);
-// Use this to log mongo queries being executed!
 mongoose.set('debug', true);
 
-// A user has been created already for our activity purposes
-db.User.create({ name: 'Ernest Hemingway' })
+app.post('/submit', ({ body }, res) => {
+    const user = new User(body);
+
+
+
+
+
+db.User.create(user)
   .then(dbUser => {
     console.log(dbUser);
   })
   .catch(({ message }) => {
     console.log(message);
   });
+});
+
+
+
+
+
+
+
 
 // Retrieve all thoughts
 app.get('/thoughts', (req, res) => {
@@ -24,6 +52,14 @@ app.get('/thoughts', (req, res) => {
     });
 });
 
+
+
+
+
+
+
+
+
 // Retrieve all users
 app.get('/users', (req, res) => {
   db.User.find({})
@@ -35,7 +71,12 @@ app.get('/users', (req, res) => {
     });
 });
 
-// Create a new note and associate it with user
+
+
+
+
+
+// Create a new thought and associate it with user
 app.post('/submit', ({ body }, res) => {
   db.Thought.create(body)
     .then(({ _id }) =>
@@ -48,6 +89,11 @@ app.post('/submit', ({ body }, res) => {
       res.json(err);
     });
 });
+
+
+
+
+
 
 app.get('/populate', (req, res) => {
   // Write the query to `find()` all of the users from the User collection
@@ -64,16 +110,10 @@ app.get('/populate', (req, res) => {
         res.sendStatus(400);
       });
   
-  // and `populate()` them with any associated notes.
-  // YOUR CODE HERE
-  //
+  
 });
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/social-net', {
-  useFindAndModify: false,
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+
 
 
 
