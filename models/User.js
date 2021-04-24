@@ -7,12 +7,12 @@ const UserSchema = new Schema({
   username: {
     type: String,
     trim: true,
-    required: "username is required"
+    
   },
   password: {
     type: String,
     trim: true,
-    required: "password is required",
+    required: true,
     validate: [({ length}) => length >= 6, "password should be longer."]
   },
   email: {
@@ -21,13 +21,35 @@ const UserSchema = new Schema({
     match: [/.+@.+\..+/, "please enter valid email"]
   },
 
+thoughts: [{
+  type: Schema.Types.ObjectId,
+  unique: true,
+  ref: 'Thought'
+  
+}],
+
+
+thoughts: [{
+  type: Schema.Types.ObjectId,
+  unique: true,
+  ref: 'User'
+  
+}],
+
+
+
+
   userCreated: {
     type:Date,
     default: Date.now
   }
+ 
 });
 
 
 const User = model('User', UserSchema);
 
 module.exports = User;
+
+
+

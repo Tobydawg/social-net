@@ -19,23 +19,23 @@ const thoughtController = {
       });
   },
   // add comment to User??
-  addThought({ params, body }, res) {
-    console.log(params);
-    Thought.create(body)
-      .then(({ _id }) => {
-        return Thought.findOneAndUpdate(
-          { _id: params.thoughtId },
-          { $push: { thought: _id } },
+  addThought( req, res ) {
+    
+    Thought.create(req.body)
+      .then( (dbThoughtData) => {
+        return User.findOneAndUpdate(
+          { _id: req.body.id },
+          { $push: { thoughts: dbThoughtData._id} },
           { new: true }
         );
       })
-      .then((dbThoughtData) => {
-        console.log(dbThoughtData);
-        if (!dbThoughtData) {
-          res.status(404).json({ message: "No thought found with this id!" });
-          return;
+      .then((dbUserData) => {
+        
+        if (!dbUserData) {
+          return res.status(404).json({ message: "Thought was created but no user with this id" });
+          
         }
-        res.json(dbThoughtData);
+        res.json({message:"thought created"});
       })
       .catch((err) => res.json(err));
   },

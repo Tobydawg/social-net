@@ -1,16 +1,24 @@
 const { Schema, model } = require('mongoose');
+//const //thoughtController = require('../controllers/thought-controller');
 
 const ThoughtSchema = new Schema({
   title: {
     type: String,
     trim: true,
-    required: 'Title is Required'
+    required: true
+  },
+
+  username: {
+    type: String,
+    required:true,
+    trim: true
+    
   },
 
   thought: {
     type: String,
     trim: true,
-    required: 'Password is Required',
+    required: true,
     minlength: 6
   },
 
