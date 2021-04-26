@@ -15,7 +15,7 @@ const ThoughtSchema = new Schema({
     
   },
 
-  thought: {
+  thoughtText: {
     type: String,
     trim: true,
     required: true,
@@ -24,7 +24,7 @@ const ThoughtSchema = new Schema({
 
   reactions: [{
     type: Schema.Types.ObjectId,
-    unique: true,
+    
     ref: 'User'
     
   }],

@@ -5,7 +5,7 @@ const { Thought, User } = require("../models");
 const thoughtController = {
  // get all thoughts
  getAllThoughts(req, res) {
-    User.find({})
+    Thought.find({})
       .populate({
         path: "thoughts",
         select: "-__v",
@@ -29,9 +29,9 @@ const thoughtController = {
           { new: true }
         );
       })
-      .then((dbUserData) => {
+      .then((dbThoughtData) => {
         
-        if (!dbUserData) {
+        if (!dbThoughtData) {
           return res.status(404).json({ message: "Thought was created but no user with this id" });
           
         }
