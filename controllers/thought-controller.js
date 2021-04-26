@@ -61,7 +61,7 @@ const thoughtController = {
       .then((deletedThought) => {
         console.log(deletedThought);
         if (!deletedThought) {
-          return res.status(404).json({ message: "No thought with this id!" });
+          return res.status(404).json({ message: "Thought Deleted!" });
         }
         return User.findOneAndUpdate(
           { _id: params.userId },
@@ -71,7 +71,7 @@ const thoughtController = {
       })
       .then((dbThoughtData) => {
         if (!dbThoughtData) {
-          res.status(404).json({ message: "No thought found with this id!" });
+          res.status(404).json({ message: "Thought Deleted!" });
           return;
         }
         res.json(dbThoughtData);

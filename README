@@ -1,0 +1,46 @@
+# Social-Net
+
+        # Table of Contents
+
+        - [Description](#description)
+        - [Installation](#installation)
+        - [Usage](#usage)
+        - [Contributing](#contributing)
+        - [Test](#test)
+        - [Credits](#credits)
+        - [License](#license)
+        - [Questions](#questions)
+
+        ## Description:
+        ![License](https://img.shields.io/badge/License--blue.svg "License Badge")
+
+        All the routes for adding, updating, deleting, and finding thoughts and users.
+        
+        ## Installation:
+        Mongoose, and MongoDB
+
+        ## Usage:
+        Test the routes for your newest social-network platform!
+        
+        ## Contributing:
+        Toby Moore	
+       
+        ## Test:
+        Make sure your server is running by typing npm start or nodemon if you have.
+       
+        ## Credits:
+        Toby Moore
+       
+        ## License:
+         For more information about the License, click on the link below.
+
+         -[License](https://opensource.org/licenses/)
+
+         ## Screencastify:
+          
+
+          - [GitHub Profile](https://github.com/)tobydawg@github.com)
+
+          For additional questions please reach out to my email at: tobytobymoore@gmail.com.
+        
+        
