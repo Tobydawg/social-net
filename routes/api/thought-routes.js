@@ -19,6 +19,7 @@ router
   .post(addThought);
 
 // Set up GET one, PUT, and DELETE at /api/thought/:id
+// id is not unique then, if you're trying to relate differnt tables 
 router
   .route('/:id')
   .get(getThoughtById)
@@ -35,3 +36,10 @@ router
 module.exports = router;
 
 //POST api/thoughts/:thoughtId/reactions
+
+//how do i associate user id's 
+// api/thoughts/:thoughtId
+
+// api/thoughs/:thoughtId/reactions
+
+// api/thoughts/:thoughtId/reactions/ :reactionId

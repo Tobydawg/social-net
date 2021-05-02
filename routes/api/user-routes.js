@@ -14,6 +14,8 @@ router
   .get(getAllUsers)
   .post(createUser);
 
+
+// api/users/ :userId instead of api/users/:id
 // Set up GET one, PUT, and DELETE at /api/users/:id
 router
   .route('/:id')
@@ -22,3 +24,4 @@ router
   .delete(deleteUser);
 
 module.exports = router;
+
