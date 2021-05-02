@@ -30,7 +30,7 @@ thoughts: [
 ],
 
 
-friends: [{
+friend: [{
   type: Schema.Types.ObjectId,
   
   ref: 'User'

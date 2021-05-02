@@ -93,7 +93,7 @@ const thoughtController = {
       })
       .catch((err) => res.json(err));
   },
-
+  // You’re going to need a new route and another method in your controller (edited) 
 
   //add reply to thought
   addReply({ params, body }, res) {
@@ -113,7 +113,7 @@ const thoughtController = {
   },
 
   // remove reply
-  removeReply({ params }, res) {
+  removeReplyById({ params }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
       { $pull: { replies: { replyId: params.replyId } } },
